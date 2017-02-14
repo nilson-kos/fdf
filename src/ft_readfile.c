@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 15:56:25 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/12 19:40:37 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/13 17:41:01 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_var		*init_var(void)
 	var = (t_var *)malloc(sizeof(t_var));
 	var->y = 0;
 	var->x = 0;
+	var->i = 0;
 	var->coord = NULL;
 	return (var);
 }

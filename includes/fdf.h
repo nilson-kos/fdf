@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 21:18:42 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/12 17:52:53 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/13 17:58:38 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,14 @@ typedef struct			s_var
 	int					signY;
 	int					error;
 	int					error2;
+	int					x1;
+	int					x2;
+	int					y1;
+	int					y2;
 	t_coord				*coord;
 }						t_var;
 
 t_var					*ft_readfile(char *s);
-void					ft_drawline(t_var *var);
+void					ft_drawlines(t_var *var);
 
 #endif

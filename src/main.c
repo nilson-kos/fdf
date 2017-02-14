@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 19:24:59 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/12 19:37:27 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/14 17:37:07 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,20 @@ void		print_list(t_coord *coord)
 	t_coord	*tmp;
 
 	tmp = coord;
-	printf("\n");
+	printf("=========================================\n");
 	while (tmp != NULL)
 	{		
 			printf("z = %d, x = %d, y = %d, rgb = %d\n", tmp->z, tmp->x, tmp->y, tmp->rgb);
 			tmp = tmp->next;
 	}
+	printf("=========================================\n");
 }
 
 int			main(int argc, char **argv)
 {
-	char 	*str;
+	char	*str;
 	int		res;
-	int		i;
 	t_var	var;
-
-	i = 0;
 
 	if (argc != 2)
 	{
@@ -43,8 +41,10 @@ int			main(int argc, char **argv)
 	var.mlx = mlx_init();
 	var.win = mlx_new_window(var.mlx, 1200, 1200, "FdF by kos;");
 	print_list(var.coord);
+	ft_putnbr(var.max);
 	ft_putnbr(var.may);
-	ft_drawline(&var);
+	ft_drawlines(&var);
+	print_list(var.coord);
 	mlx_loop(var.mlx);
-	return (0);	
+	return (0);
 }
