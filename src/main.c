@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 19:24:59 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/14 17:37:07 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/16 16:38:18 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ int			main(int argc, char **argv)
 	var = *(ft_readfile(argv[1]));
 	var.mlx = mlx_init();
 	var.win = mlx_new_window(var.mlx, 1200, 1200, "FdF by kos;");
-	print_list(var.coord);
-	ft_putnbr(var.max);
-	ft_putnbr(var.may);
+	//print_list(var.coord);
+	//ft_putnbr(var.max);
+	//ft_putchar('\n');
+	//ft_putnbr(var.may);
+	var = *(ft_transform(&var));
 	ft_drawlines(&var);
 	print_list(var.coord);
 	mlx_loop(var.mlx);

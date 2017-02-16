@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 21:18:42 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/13 17:58:38 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/16 19:37:07 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # include <stdio.h>
 # include "mlx.h"
 # include <math.h>
+# define A (var->alfa * M_PI / 180)
+# define B (var->beta * M_PI / 180)
+# define G (var->gama * M_PI / 180)
 
 typedef struct 			s_coord
 {
@@ -41,6 +44,7 @@ typedef struct			s_var
 	int					i;
 	int					x;
 	int					y;
+	int					rgb;
 	int					max;
 	int					may;
 	int					fd;
@@ -54,10 +58,18 @@ typedef struct			s_var
 	int					x2;
 	int					y1;
 	int					y2;
+	int					yy;
+	int					xx;
+	int					alfa;
+	int					beta;
+	int					gama;
 	t_coord				*coord;
 }						t_var;
 
 t_var					*ft_readfile(char *s);
+t_var					*ft_transform(t_var *var);
 void					ft_drawlines(t_var *var);
+int						ft_ch_big(char **mass);
+void					ft_ch_smal(char **mass, int max);
 
 #endif

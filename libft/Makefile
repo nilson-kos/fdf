@@ -6,7 +6,7 @@
 #    By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/25 17:13:38 by kshcherb          #+#    #+#              #
-#    Updated: 2017/02/05 16:20:45 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/02/16 19:30:09 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ SRCS = ft_strlen.c		\
 	   ft_lstiter.c		\
 	   ft_lstmap.c		\
 	   get_next_line.c	\
+	   ft_atoi_base.c	\
 
 
 BINS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:22:57 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/05 16:18:55 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/16 19:29:54 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct		s_lion
 }					t_lion;
 
 int					get_next_line(const int fd, char **line);
+int					ft_atoi_base(char *str, int base);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
