@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/05 15:56:25 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/16 20:13:01 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/17 21:20:29 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ t_var		*init_var(void)
 	var->i = 0;
 	var->xx = -1;
 	var->yy = 0;
+	var->upz = 2;
+	var->zoomM = 600;
+	var->zoomP = 700;
 	var->coord = NULL;
 	return (var);
 }

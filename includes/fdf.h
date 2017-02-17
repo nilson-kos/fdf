@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 21:18:42 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/16 19:37:07 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/17 21:34:12 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ typedef struct			s_var
 	int					alfa;
 	int					beta;
 	int					gama;
+	int					zoomM;
+	int					zoomP;
+	int					upz;
 	t_coord				*coord;
 }						t_var;
 
@@ -71,5 +74,8 @@ t_var					*ft_transform(t_var *var);
 void					ft_drawlines(t_var *var);
 int						ft_ch_big(char **mass);
 void					ft_ch_smal(char **mass, int max);
+int						ft_key_events(int keycode, t_var *var);
+void					ft_arrows(int kcode, t_var *var);
+void					ft_zoom(int kcode, t_var *var);
 
 #endif

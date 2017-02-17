@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 16:01:09 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/16 20:49:34 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/17 21:21:07 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ t_var		*ft_transform(t_var *var)
 	var->shiftY = 1000 / (var->may + 1);
 	while (tmp != NULL)
 	{
-		x1 = tmp->x * var->shiftX + var->shiftX / 2 - 600;
-		y1 = tmp->y * var->shiftY + var->shiftY / 2 - 600;
-		z1 = -tmp->z * 10;
+		x1 = tmp->x * var->shiftX + var->shiftX / 2 - var->zoomM;
+		y1 = tmp->y * var->shiftY + var->shiftY / 2 - var->zoomM;
+		z1 = -tmp->z * var->upz;
 		tmp->x = (x1 * cos(B) + (-y1 * sin(A) + z1 * cos(A)) * sin(B)) * cos(G)
-		+ (y1 * cos(A) + z1 * sin(A)) * sin(G) + 700;
+		+ (y1 * cos(A) + z1 * sin(A)) * sin(G) + var->zoomP;
 		tmp->y = -(x1 * cos(B) + (-y1 * sin(A) + z1 * cos(A)) * sin(B)) * sin(G)
-		+ (y1 * cos(A) + z1 * sin(A)) * cos(G) + 700;
+		+ (y1 * cos(A) + z1 * sin(A)) * cos(G) + var->zoomP;
 		tmp = tmp->next;
 	}
 	return (var);
