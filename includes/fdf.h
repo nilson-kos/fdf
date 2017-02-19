@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 21:18:42 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/17 21:34:12 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/19 17:30:01 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@
 # define B (var->beta * M_PI / 180)
 # define G (var->gama * M_PI / 180)
 
-typedef struct 			s_coord
+typedef struct			s_coord
 {
 	int					x;
 	int					y;
 	int					z;
+	int					x0;
+	int					y0;
+	int					rgb0;
 	int					rgb;
-	struct	s_coord		*next;
+	struct s_coord		*next;
 }						t_coord;
 
 typedef struct			s_var
 {
 	void				*mlx;
 	void				*win;
-	int					shiftX;
-	int					shiftY;
+	int					shiftx;
+	int					shifty;
 	int					i;
 	int					x;
 	int					y;
@@ -48,10 +51,10 @@ typedef struct			s_var
 	int					max;
 	int					may;
 	int					fd;
-	int					deltaX;
-	int					deltaY;
-	int					signX;
-	int					signY;
+	int					deltax;
+	int					deltay;
+	int					signx;
+	int					signy;
 	int					error;
 	int					error2;
 	int					x1;
@@ -63,9 +66,16 @@ typedef struct			s_var
 	int					alfa;
 	int					beta;
 	int					gama;
-	int					zoomM;
-	int					zoomP;
+	double				zoomm;
+	int					zoomp;
 	int					upz;
+	int					sdvigx;
+	int					sdvigy;
+	int					color;
+	int					shifttxt;
+	int					infozoom;
+	int					infoalpha;
+	int					infobeta;
 	t_coord				*coord;
 }						t_var;
 
@@ -77,5 +87,9 @@ void					ft_ch_smal(char **mass, int max);
 int						ft_key_events(int keycode, t_var *var);
 void					ft_arrows(int kcode, t_var *var);
 void					ft_zoom(int kcode, t_var *var);
+void					ft_angle(int kcode, t_var *var);
+void					ft_rgb(int kcode, t_var *var);
+void					ft_up_down_z(int kcode, t_var *var);
+void					ft_info(t_var *var);
 
 #endif

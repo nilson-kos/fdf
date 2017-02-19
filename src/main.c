@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 19:24:59 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/17 17:04:45 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/19 18:36:20 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int			main(int argc, char **argv)
 {
-	char	*str;
-	int		res;
 	t_var	var;
 
 	if (argc != 2)
@@ -28,6 +26,7 @@ int			main(int argc, char **argv)
 	var.win = mlx_new_window(var.mlx, 1200, 1200, "FdF by kos;");
 	var = *(ft_transform(&var));
 	ft_drawlines(&var);
+	ft_info(&var);
 	mlx_key_hook(var.win, ft_key_events, &var);
 	mlx_loop(var.mlx);
 	return (0);

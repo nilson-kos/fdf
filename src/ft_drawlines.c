@@ -6,7 +6,7 @@
 /*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:47:28 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/17 18:45:48 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/02/19 18:32:48 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 void		print_line(t_var *var)
 {
-	var->deltaX = abs(var->x2 - var->x1);
-	var->deltaY = abs(var->y2 - var->y1);
-	var->signX = var->x1 < var->x2 ? 1 : -1;
-	var->signY = var->y1 < var->y2 ? 1 : -1;
-	var->error = var->deltaX - var->deltaY;
+	var->deltax = abs(var->x2 - var->x1);
+	var->deltay = abs(var->y2 - var->y1);
+	var->signx = var->x1 < var->x2 ? 1 : -1;
+	var->signy = var->y1 < var->y2 ? 1 : -1;
+	var->error = var->deltax - var->deltay;
 	mlx_pixel_put(var->mlx, var->win, var->x2, var->y2, var->rgb);
 	while ((var->x1 != var->x2) || (var->y1 != var->y2))
 	{
 		mlx_pixel_put(var->mlx, var->win, var->x1, var->y1, var->rgb);
 		var->error2 = var->error * 2;
-		if (var->error2 > -(var->deltaY))
+		if (var->error2 > -(var->deltay))
 		{
-			var->error -= var->deltaY;
-			var->x1 += var->signX;
+			var->error -= var->deltay;
+			var->x1 += var->signx;
 		}
-		if (var->error2 < var->deltaX)
+		if (var->error2 < var->deltax)
 		{
-			var->error += var->deltaX;
-			var->y1 += var->signY;
+			var->error += var->deltax;
+			var->y1 += var->signy;
 		}
 	}
 }
@@ -66,6 +66,12 @@ void		ft_drawvert(t_var *var)
 	}
 }
 
+void		ft_one(t_var *var)
+{
+	mlx_pixel_put(var->mlx, var->win, var->coord->x, var->coord->y,
+	var->coord->rgb);
+}
+
 void		ft_drawlines(t_var *var)
 {
 	t_coord	*tmp;
@@ -73,6 +79,8 @@ void		ft_drawlines(t_var *var)
 
 	cc = 0;
 	tmp = var->coord;
+	if (var->may == 0 && var->max == 0)
+		ft_one(var);
 	while (tmp->next != NULL)
 	{
 		if (cc == var->max)
@@ -89,6 +97,6 @@ void		ft_drawlines(t_var *var)
 		tmp = tmp->next;
 		cc++;
 	}
-	ft_drawvert(var);
+	(var->max < 499) ? ft_drawvert(var) : (var->i = 0);
 	var->i = 0;
 }
